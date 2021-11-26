@@ -3,11 +3,12 @@
 // Variabile testo di prova
 $textExemple = "Questo è il mio primo testo di prova utilizzando PHP!";
 
-// Variabile corrispondente alla lunghezza totale del testo di prova
-$lengthText = strlen($textExemple);
-
 // Variabile inserita nell'url dall'utente
 $userWord = $_GET["userText"];
+
+// Testo modificato con l'aggiunta degli asterischi
+$newText = str_replace(strtolower($userWord), '***', strtolower($textExemple));
+
 
 ?>
 
@@ -28,10 +29,13 @@ $userWord = $_GET["userText"];
     <p><?php echo $textExemple ?></p>
 
     <!-- Caratteri totali variabile testo esempio -->
-    <p>Totale caratteri: "<?php echo $lengthText ?>"</p>
+    <p>Totale caratteri: "<?php echo strlen($textExemple) ?>"</p>
 
     <!-- testo inserito dall'utente tramite url e modificato con 3 asterischi -->
-    <p>Testo Utente: <?php echo str_replace($userWord, '***', $userWord) ?></p>
+    <p>Testo Modificato: <?php echo $newText ?></p>
+
+    <!-- Lunghezza testo modificato con gli asterischi -->
+    <p>Lunghezza testo modificato: "<?php echo strlen($newText) ?>"</p>
 </body>
 
 </html>
